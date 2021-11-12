@@ -8,7 +8,7 @@ Dr. Sebastian Gottwald
 
 ---
 
-## 1. Motivation
+## Motivation
 
 --
 
@@ -161,7 +161,7 @@ __Answer:__ Hilbert space theory (next section).
 
 ---
 
-## 2. Reproducing Kernel Hilbert Spaces
+## Reproducing Kernel Hilbert Spaces
 
 --
 
@@ -418,7 +418,7 @@ _where $\alpha = (\alpha_1,\dots,\alpha_N)\in\mathbb R^N$ is the only degree of 
 ---
 
 
-## 3. Kernel machines
+## Kernel machines
 
 
 --
