@@ -242,9 +242,9 @@ $$|\langle v,w\rangle| \leq \\|v\\| \\|w\\|.$$
 
 * In $\mathbb R^d$, this can be seen as a consequence of $\langle x,y\rangle = \\|x\\| \\|y\\| \cos \theta$. In fact, it justifies the __definition of an angle__ between elements of arbitrary inner product spaces.
 
-* It implies the __triangle inequality__, $\\|v+w\\| \leq \\|v\\|+ \\|w\\|$, in any inner product space (see Exercises). 
+* It implies the __triangle inequality__, $\\|v+w\\| \leq \\|v\\|+ \\|w\\|$, in any inner product space (see exercises). 
 
-* It is very useful to show implications like $x,y\in \ell^2 \Rightarrow xy\in \ell^1$ (see Exercises), which is why it appears all over Analysis.
+* It is very useful to show implications like $x,y\in \ell^2 \Rightarrow xy\in \ell^1$ (see exercises), which is why it appears all over Analysis.
 
 
 --
@@ -558,14 +558,20 @@ By complementary slackness, $\lambda_i^\ast(1-y_i(\langle w^\ast,x_i\rangle + b^
 \end{equation}
 This means that in the linear combination $w^\ast(\lambda^\ast) = \sum_i \lambda_i^\ast y_i x_i$ only those patterns $x_i$ contribute that satisfy the constraint as an equality (they are on the margin!) known as _support vectors_.  In particular, __all other patterns have no influence__ on the optimal hyperplane.
 
-<div style="margin-top: 40px;"></div>
+<div style="margin-top: 30px;"></div>
 
 ### Decision function
 
 Plugging in the expression for $w^\ast(\lambda^\ast)$ into the decision function $f_{w,b}$ of the linear SVM, we obtain
+
+<div style="margin-top: -30px;"></div>
+
 $$
 f_{w^\ast(\lambda^\ast),b^\ast}(x) = \mathrm{sgn} \Big(\sum\nolimits_{i=1}^N \lambda_i^\ast y_i \langle x_i,x\rangle + b^\ast \Big)
 $$
+
+<div style="margin-top: -20px;"></div>
+
 where $\lambda^\ast$ is given by the dual problem, and, due to $(\ast)$, $b^\ast = y_j - \sum_{i=1}^N \lambda_i^\ast y_i \langle x_i,x_j\rangle$ for all $j$ with $\lambda_j^\ast > 0$ (e.g. by averaging).
 
 
@@ -588,7 +594,7 @@ $$
 <div style="margin-top: 30px;"></div>
 
 <div class="comment">
-<b>Note:</b> In exercises for this section you will use these results to create simulations for linear and nonlinear Support Vector Machines. You can view my implementations <a target="_blank" href="https://share.streamlit.io/sgttwld/learningsystems2/InstanceBasedLearning/streamlit_app.py">here</a>.
+<b>Note:</b> In the exercises for this section you will use these results to create simulations for linear and nonlinear Support Vector Machines. You can view my implementations <a target="_blank" href="https://share.streamlit.io/sgttwld/learningsystems2/InstanceBasedLearning/streamlit_app.py">here</a>.
 </b> 
 </div>
 
