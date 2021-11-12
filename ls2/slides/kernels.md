@@ -8,7 +8,7 @@ Dr. Sebastian Gottwald
 
 ---
 
-## Motivation
+## 1. Motivation
 
 --
 
@@ -161,7 +161,7 @@ __Answer:__ Hilbert space theory (next section).
 
 ---
 
-## Reproducing Kernel Hilbert Spaces
+## 2. Reproducing Kernel Hilbert Spaces
 
 --
 
@@ -418,7 +418,7 @@ _where $\alpha = (\alpha_1,\dots,\alpha_N)\in\mathbb R^N$ is the only degree of 
 ---
 
 
-## Kernel machines
+## 3. Kernel machines
 
 
 --
@@ -588,7 +588,7 @@ $$
 <div style="margin-top: 30px;"></div>
 
 <div class="comment">
-<b>Note:</b> In the exercise sheet for this section you will use these results to create simulations for linear and nonlinear Support Vector Machines.
+<b>Note:</b> In exercises for this section you will use these results to create simulations for linear and nonlinear Support Vector Machines. You can view my implementations here: <a target="_blank" href="https://share.streamlit.io/sgttwld/learningsystems2/InstanceBasedLearning/streamlit_app.py"></a>
 </b> 
 </div>
 
