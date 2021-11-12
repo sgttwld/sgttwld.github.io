@@ -1,0 +1,125 @@
+.reveal-full-page {
+}
+
+.reveal .slides section,
+.reveal .slides section > section {
+  text-align: left;
+  font-size: 25px;
+  max-width: 1000px;
+
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  margin: 30px 0 0px 0;
+}
+
+.reveal h3, .reveal h5 {
+  margin: 0;
+}
+
+
+
+.reveal .controls button {
+  color: #000;
+}
+
+.slide-menu-button {
+  color: #000;
+}
+
+.reveal .slide-number {
+  margin-bottom: 10px;
+  margin-right: 10px;
+  background-color: #6B6B6B;
+}
+
+
+.slide-number a:hover {
+  color: #ccc;
+}
+
+.reveal h2 {
+  text-align: center;
+}
+
+.reveal a {
+  color: #EC64C0;
+}
+
+.reveal a:hover {
+  color: #EC64C0;
+  text-decoration: underline;
+}
+
+.reveal p {
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+
+.reveal .progress span {
+  background-color: #575756;
+}
+
+/*section .present {*/
+  /*top: 0px;*/
+  /*padding-left: 180px;*/
+  /*max-width: 790px;*/
+/*}*/
+
+
+.reveal.show-notes .speaker-notes {
+  display: flex;
+  align-items: left;
+  justify-content: center;
+  flex-direction: column;
+  line-height: 1.5em;
+  color: #666;
+  font-size: 18px;
+}
+
+.reveal .speaker-notes ul li {
+  margin-bottom: 10px;
+}
+
+.reveal .speaker-notes p {
+  line-height: 1.5em;
+}
+
+.speaker-notes:before {
+  content: "" !important;
+}
+
+.notes-placeholder {
+  display: none;
+}
+
+/*
+body {
+  padding-left: 50px;
+}*/
+
+.comment {
+  font-size: 20px;
+}
+
+.comment i {
+  font-style: italic;
+}
+
+.container{
+    display: flex;
+}
+.col1{
+  flex: 1;
+}
+.col2{
+  flex: 2;
+}
+.col3{
+  flex: 3;
+}
+
