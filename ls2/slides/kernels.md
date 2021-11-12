@@ -588,7 +588,7 @@ $$
 <div style="margin-top: 30px;"></div>
 
 <div class="comment">
-<b>Note:</b> In exercises for this section you will use these results to create simulations for linear and nonlinear Support Vector Machines. You can view my implementations here: <a target="_blank" href="https://share.streamlit.io/sgttwld/learningsystems2/InstanceBasedLearning/streamlit_app.py"></a>
+<b>Note:</b> In exercises for this section you will use these results to create simulations for linear and nonlinear Support Vector Machines. You can view my implementations <a target="_blank" href="https://share.streamlit.io/sgttwld/learningsystems2/InstanceBasedLearning/streamlit_app.py">here</a>.
 </b> 
 </div>
 
