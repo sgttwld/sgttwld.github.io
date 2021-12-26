@@ -550,7 +550,7 @@ $(i)$ _it contains a node in $C$ that is tail-to-tail or head-to-tail_, or
 $(ii)$ _it contains a head-to-head node that is __not__ in $C$, nor any of its descendants is in $C$_
 
 
-Here, a _descendant_ of a (oparent) node is any node that can be reached from its parent by following arrows. 
+Here, a _descendant_ of a (parent) node is any node that can be reached from its parent by following arrows. 
 
 
 __Theorem__ ([Pearl 1988](https://www.sciencedirect.com/book/9780080514895/probabilistic-reasoning-in-intelligent-systems)): _If all possible paths from $A$ to $B$ are blocked by $C$ then the random variables in $A$ are independent from the ones in $B$ given the random variables in $C$._ 
