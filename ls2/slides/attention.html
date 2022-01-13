@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>LS2 - Learning with Attention</title>
+
+  		<meta name="author" content="Sebastian Gottwald">
+  		<meta name="apple-mobile-web-app-capable" content="yes">
+  		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+		<link rel="stylesheet" href="plugin/toc-progress/toc-progress.css">
+
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+		<!-- custom theme -->
+		 <link rel="stylesheet" href="custom-theme.css">
+
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown="attention.md"
+						 data-separator="^\n---\n$"
+						 data-separator-vertical="^\n--\n$"
+				         data-separator-notes="^\n###\n$">
+
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script src="plugin/menu/menu.js"></script>
+
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				controls: false,
+		        controlsTutorial: false,
+		        controlsLayout: 'bottom-right',
+		        controlsBackArrows: 'faded',
+		        progress: false,
+		        slideNumber: true,
+		        history: true,
+		        keyboard: true,
+		        overview: true,
+		        touch: true,
+		        loop: false,
+		        fragments: true,
+		        fragmentInURL: false,
+		        mouseWheel: false,
+		        hideAddressBar: true,
+		        previewLinks: false,
+		        transition: 'none',
+		        viewDistance: 3,
+		        backgroundTransition: 'none', // none/fade/slide/convex/concave/zoom
+
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath, RevealMenu],
+
+				math: {
+		            mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+		            config: 'TeX-AMS_HTML-full',
+		            TeX: { Macros: { RR: "{\\bf R}" } }
+        		},
+
+        		menu: {
+		          side: 'right',
+		          width: 'wide',
+		          openSlideNumber: true,
+		          openButton: false
+		        },
+
+		        dependencies: [
+		          { src: 'plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize(); toc_progress.create(); } }
+		        ],
+
+			});
+		</script>
+	</body>
+</html>
