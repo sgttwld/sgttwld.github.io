@@ -73,6 +73,20 @@ li {
 
 }
 
+ul .sublist {
+  list-style: inside;
+  padding: 0;
+  margin: 0;
+  padding-left: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.links {
+  font-size: 1.2rem;
+}
+
+
 p {
   margin: 0;
   padding: 0;
