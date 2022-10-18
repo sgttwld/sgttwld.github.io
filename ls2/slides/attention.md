@@ -893,7 +893,7 @@ There are some components of the Transformer architecture that we did not discus
 
 <p style="text-align:center;"><img  data-src="./images/att_transformer_performance.png"></p>
 <div style="margin-top: -20px;"></div>
-<p style="text-align:center; font-size: 20px">Image taken from <a href="https://papers.nips.cc/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf">Vaswani et al. (2017)</a> (human translators reach BLEU scores of ~30 for EN-DE)</p>
+<p style="text-align:center; font-size: 20px">Image taken from <a target="_blank" rel="noopener noreferrer" href="https://papers.nips.cc/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf">Vaswani et al. (2017)</a> (human translators reach BLEU scores of ~30 for EN-DE)</p>
 
 
 --
@@ -974,9 +974,405 @@ Even more recently, models got rid of the attention mechanism as well, only keep
 </div>
 
 
+
+
+---
+
+
+## 4. Vision Transformers
+
 --
 
-# Thank you for your *attention*!
+
+
+<div class="container">
+<div class="col1">
+
+
+
+##### [Dosovitskiy et al. (2021)](https://arxiv.org/abs/2010.11929)
+### An image is worth 16x16 words
+The original Vision Transformer (ViT).
+
+
+<ul>
+<li>
+
+Follows **encoder architecture** of the original transformer ([Vaswani2017](https://arxiv.org/abs/1706.03762))
+
+</li>
+<li class="fragment">
+
+Image is split into a fixed number of **non-overlapping patches**
+
+</li>
+<li class="fragment">
+
+Flattened patches are **embedded by a learnable linear map**
+
+</li>
+<li class="fragment">
+
+An extra **class token** (such as in BERT) is used to represent the full image, whose final state is used as input for a shallow MLP mapping to the corresponding class.
+
+</li>
+</ul>
+
+<div style="margin-top: 20px;"></div>
+
+<div class="comment fragment">
+
+**Note:**  As usual, there are also residual connections, layer normalization, and positional (1d) encoding.
+
+</div>
+
+
+</div>
+
+
+<div class="col1">
+    <img style="height:640px;" data-src="./images/att_vision_transformer.png">
+</div>
+</div>
+
+
+--
+
+
+
+##### [Dosovitskiy et al. (2021)](https://arxiv.org/abs/2010.11929)
+### An image is worth 16x16 words
+
+<div style="margin-top: -30px;"></div>
+<p style="text-align:center;"><img style="height:140px;" data-src="./images/att_vision_transformer_performance.png"></p>
+<div style="margin-top: -50px;"></div>
+<p style="text-align:center; font-size: 15px">Image source: <a target="_blank" rel="noopener noreferrer" href="https://openreview.net/pdf?id=YicbFdNTTy">Dosovitskiy et al. (2021)</a></p>
+
+<ul>
+<li>
+
+**competitive** with or better than CNNs <br>(current state of the art on ImageNet-1k with **88.55%** top-1-accuracy)
+
+</li>
+<li>
+
+**BUT**: pre-trained on a **huge dataset** (e.g. JFT-300M, available internally at Google)
+
+</li>
+</ul>
+
+<ul>
+<li class="fragment">
+
+**reason**: there is no locality inherent to transformers (in contrast to CNNs)
+
+</li>
+<li class="fragment">
+
+The authors summarize this by "_We find that large scale training trumps inductive bias_" and conclude that transformers "_do not generalize well when trained on insufficient amounts of data_".
+
+</li>
+</ul>
+
+
+--
+
+
+##### [Touvron et al., 2021](https://arxiv.org/abs/2012.12877)
+### data-efficient image transformers
+
+
+
+<div style="margin-top: -20px;"></div>
+<p style="text-align:center;"><img style="height:140px;" data-src="./images/att_vision_deit.png"></p>
+<div style="margin-top: -60px;"></div>
+<p style="text-align:center; font-size: 15px">Image source: <a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2012.12877">Touvron et al., 2021</a></p>
+
+Direct training on ImageNet **without pre-training on a larger dataset** using a specific training procedure (~2-3 days on a 4-8 GPU node, competitive to current CNNs):
+
+
+<div style="font-size: 20px;">
+
+<ul>
+<li class='fragment'>
+
+initialize weights with a **truncated normal distribution** (transformers are sensitive to initialization)
+
+</li>
+<li class="fragment">
+
+**stochastic depth**: randomly drop a subset of layers during training, replacing them with identity mappings
+
+</li>
+<li class="fragment">
+
+**label smoothing**: calculate the cross-entropy loss using a weighted mixture of the hard targets with the uniform distribution
+
+</li>
+<li class="fragment">
+
+**fine-tuning at different resolution**: train with resolution 224x224 and fine-tune with resolution 384x384 
+
+</li>
+<li class="fragment">
+
+various **data augmentation** methods (see next slide) 
+
+</li>
+</ul>
+
+</div>
+
+
+--
+
+##### [Touvron et al., 2021](https://arxiv.org/abs/2012.12877)
+### data-efficient image transformers
+The following augmentation methods proved to be useful for vision transformers:
+
+
+<div style="font-size: 20px;">
+
+* [batch augmentation](https://openaccess.thecvf.com/content_CVPR_2020/papers/Hoffer_Augment_Your_Batch_Improving_Generalization_Through_Instance_Repetition_CVPR_2020_paper.pdf): apply multiple augmentations to the same image
+
+*  [RandAugment](https://arxiv.org/abs/1909.13719): simplified automatic augmentation method performing a grid-search over augmentation parameters: **magnitude** of each augmentation, the **amount of augmentations** per image, and the amount of **available augmentations** (e.g. rotation, contrast, color, etc.). 
+
+
+<div class="container fragment">
+<div class="col1">
+
+* Out-of-distribution augmentations:
+
+    * [mixup](https://arxiv.org/pdf/1710.09412.pdf): convex combination of raw inputs and one-hot encoded outputs
+
+    * [random erasing](https://arxiv.org/pdf/1708.04896.pdf)/[cutout](https://arxiv.org/pdf/1708.04552.pdf): cut out a random part of an image
+
+    * [cutmix](https://arxiv.org/pdf/1905.04899.pdf): image patches are cut and pasted in other images with mixed output labels proportional to the relative patch sizes
+
+</div>
+
+<div class="col1">
+    <p style="text-align:center;"><img style="height:160px;" data-src="./images/att_vision_dataaugment.png"></p>
+    <div style="margin-top: -30px;"></div>
+    <p style="text-align:center; font-size: 15px">Image source: <a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/pdf/1905.04899.pdf">Yun et al., 2019</a></p>
+</div>
+</div>
+
+</div>
+
+--
+
+
+##### [Touvron et al., 2021](https://arxiv.org/abs/2012.12877)
+### data-efficient image transformers
+
+
+
+<div class="container">
+<div class="col1">
+<div style="margin-top: 25px;"></div>
+
+<div style="font-size: 20px;">
+
+<ul>
+<li>
+
+Also introduced a new **token-based distillation method** that boosts performance, especially of smaller image transformers
+
+</li>
+<li class="fragment">
+
+However, the <b>influential contribution</b> was the training scheme that was adopted by multiple follow-up papers, that established new start-of-the-art performances. For example:
+
+<ul>
+<li>
+
+[Touvron et al., 2021](https://arxiv.org/abs/2103.17239), _Class-Attention in Image Transformers (CaiT)_: **inserts the class token** at a later layer after **freezing** the patch embeddings. 
+
+</li>
+<li>
+
+[Liu et al., 2021](https://arxiv.org/abs/2103.14030), _Swin Transformer_: **hierarchical shifted** (not _sliding_) **window** approach to self-attention with **linear complexity** (see next slides)
+
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div class="col1">
+        <img style="height:450px;" data-src="./images/att_vision_deit_performance.png">
+<div style="margin-top: -45px;"></div>
+<p style="text-align:center; font-size: 15px">Top-1-accuracy on ImageNet-1k (source: <a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2012.12877">Touvron et al., 2021</a>)</p>
+</div>
+</div>
+
+
+
+
+--
+
+<div class="container">
+<div class="col1">
+
+##### [Liu et al. (2021)](https://arxiv.org/abs/2103.14030)
+### Swin Transformer
+
+<div style="font-size: 24px;">
+
+Essentially consists of 3 modifications of ViT:
+
+<ol>
+<li>
+
+**Hierarchical structure**: multiple "stages", groups of layers that merge neighbouring tokens of previous groups <br>$\Rightarrow$ locality bias
+
+</li>
+<li class="fragment">
+
+Each stage contains multiple layers with **local self-attention inside of fixed-size windows**<br> $\Rightarrow$ linear complexity (+ more locality)
+
+</li>
+<li class="fragment">
+
+each local self-attention layer is always followed by a **shifted window** self-attention layer <br>$\Rightarrow$ communication between neighbouring patches of previous block
+
+</li>
+</ol>
+</div>
+</div>
+
+
+<div class="col1">
+    <div style="margin-top: -45px;"></div>
+    <p style="text-align:center;"><img style="height:670px;" data-src="./images/att_vision_swin_overview.png"></p>
+</div>
+</div>
+
+
+--
+
+
+
+##### [Liu et al. (2021)](https://arxiv.org/abs/2103.14030): Swin Transformer
+### Hierarchical Structure
+
+<div style="margin-top: -45px;"></div>
+<div class="col1">
+    <p style="text-align:center;"><img style="height:450px;" data-src="./images/att_vision_swin_hier.png"></p>
+</div>
+
+<div style="margin-top: -15px;"></div>
+
+
+<div class="comment">
+<b>Parameter settings in <a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2103.14030">Liu et al., 2021</a>:</b> input size $(H,W)=$ (224,224), 3 channels (RGB), patch size (4,4), mapped to 
+$C\in \{96,128,192\}$ dimensional embedding (tiny, small, etc.), 4 stages, downsampling by (2x2) between stages with doubling of embedding size, multiple windowed multihead self-attention layers per stage (see next slide)
+
+</div>
+
+
+--
+
+
+
+##### [Liu et al. (2021)](https://arxiv.org/abs/2103.14030): Swin Transformer
+### Local windowed Self-Attention in each stage
+
+
+<div style="margin-top: -45px;"></div>
+<div class="col1">
+    <p style="text-align:center;"><img style="height:480px;" data-src="./images/att_vision_swin_win.png"></p>
+</div>
+
+<div style="margin-top: -25px;"></div>
+
+
+<div class="comment">
+<b>Parameter settings in <a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/abs/2103.14030">Liu et al., 2021</a>:</b> Window-size $M$ = 7, window shift $\lfloor {M}/{2} \rfloor$ (= 3), layers per stage = (2,2,6,2) and (2,2,18,2) for larger models, fixed number of attention per stage, e.g. (3,6,12,24) for smaller models.
+</div>
+
+
+
+
+--
+
+
+##### [Liu et al. (2021)](https://arxiv.org/abs/2103.14030): Swin Transformer
+### remarks
+
+
+
+<div style="font-size: 22px;" class="container">
+<div class="col1">
+
+<ul>
+<li class="fragment">
+
+Boundary windows that do not fit the image are combined (instead of extra padding; same number of windows as non-shifted).
+
+</li>
+
+<li class="fragment">
+
+Positional information is encoded in a bias term added to the attention scores inside the softmax (similar to [T5](https://arxiv.org/pdf/1910.10683.pdf), [LeViT](https://arxiv.org/pdf/2104.01136.pdf), etc.)
+
+</li>
+</ul>
+
+</div>
+
+<div class="col1">
+    <div style="margin-top: -40px;"></div>
+    <p style="text-align:center;"><img style="height:160px;" data-src="./images/att_vision_swin_tinyimagenet.png"></p>
+    <div style="margin-top: -40px;"></div>
+    <p style="text-align:center; font-size: 15px">Image source: <a target="_blank" rel="noopener noreferrer" href="https://arxiv.org/pdf/2205.10660v1.pdf
+">Huynh (2022)</a></p>
+</div>
+</div>
+
+</div>
+
+<div style="font-size: 22px;">
+
+<ul>
+<li class="fragment">
+
+Merging between stages $\approx$ self-attention layers with neighbourhoods forced to have the same embeddings, i.e. **Swin vs ViT** $\approx$ **FFNs vs CNNs** (similar approach: [LeViT](https://arxiv.org/pdf/2104.01136.pdf)) 
+
+</li>
+<li class="fragment">
+
+**Improvements**:
+
+<ul>
+<li>
+
+[Swin transformer v2](https://arxiv.org/pdf/2111.09883.pdf): Technical modifications for better scaling.
+
+</li>
+<li>
+
+[VOLO](https://arxiv.org/abs/2106.13112): Extra preprocessing stage that creates fine-level token representations.
+
+</li>
+<li>
+
+[HAT](https://arxiv.org/abs/2204.00993): Low ViT performance is attributed to high-frequency Fourier components (e.g. sharp edges). Augmenting specifically those components improves performance.
+
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+--
+
+# Thank you!
 
 
 
