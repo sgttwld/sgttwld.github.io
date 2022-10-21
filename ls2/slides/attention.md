@@ -564,7 +564,7 @@ Often, we assume that $\mathbf{W}^k=\mathbf{W}^v$, so that the keys and values a
 
 <li class="fragment">
 
-For NLP, the input vectors are **learned word embeddings** (using available algorithms such as word2vec), usually high-dimensional, e.g., $d_\text\{embedding\} = 512$.
+For NLP, the input vectors are **learned word embeddings** (similar to other algorithms such as word2vec), usually high-dimensional, e.g., $d_\text\{embedding\} = 512$.
 
 </li>
 
