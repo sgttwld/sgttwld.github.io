@@ -1051,7 +1051,7 @@ An extra **class token** (such as in BERT) is used to represent the full image, 
 <ul>
 <li>
 
-**competitive** with or better than CNNs <br>(current state of the art on ImageNet-1k with **88.55%** top-1-accuracy)
+**competitive** with or better than CNNs: <br>currently (2022-11) ViT-H is <a href="https://paperswithcode.com/sota/image-classification-on-imagenet?dimension=Number%20of%20params&tag_filter=171">state of the art on ImageNet-1k</a> with **88.30%** top-1-accuracy.
 
 </li>
 <li>
