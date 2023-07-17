@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Berechenbarkeit und Komplexität</title>
+    <meta name="keywords" content="machine learning, decision-making , mathematics, python, tensorflow">
+    <meta name="author" content="Sebastian Gottwald">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" sizes="57x57" href="../static/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../static/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../static/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../static/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../static/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../static/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../static/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../static/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="../static/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../static/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/icons/favicon-16x16.png">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../static/icons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="dns-prefetch" href="//fonts.googleapis.com/">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../static/style.css?version=5">
+
+  </head>
+
+  <body>
+    <div id="wrapper">
+
+
+
+      <div id="content">
+
+        <!-- <div class="quote">I learned very early the difference between knowing the name of something and knowing something. (Richard P. Feynman)
+        </div> -->
+
+        
+        <div class='quick_info'>
+          <h1>Berechenbarkeit und Komplexität</h1> 
+          <div class='short_description'>
+            Sebastian Gottwald, Ulm University
+          </div>
+        </div>
+
+
+        <h2>Der Gödelsche Satz und PCP <span class='links'>(<a target="_blank" href="buk/1_goedel_pcp.pdf">Notizen</a>)</span></h2>
+        
+        <ul>
+        <li><b>Einführung</b></a>
+          <ul class='sublist'>
+            <li>Überblick: Semi-entscheidbare Probleme</li>
+            <li>Vorschau: Anstehende reduktionen und Komplexitätstheorie</li>
+            <li>Vorschau: Der Gödelsche Unvollständigkeitssatz</li>
+            </ul>
+        </li>
+        <li><b>Postsches Korrespondenzproblem (PCP)</b></a>
+          <ul class='sublist'>
+            <li>Beispiele</li>
+            <li>Definition: PCP</li>
+            <li>Bemerkung: PCP ist semi-entscheidbar aber nicht entscheidbar</li>
+            <li>Definition: MPCP</li>
+            <li>Lemma: MPCP reduzierbar auf PCP</li>
+            <li>Lemma: H reduzierbar auf MPCP</li>
+            <li>Satz: MPCP und PCP nicht-entscheidbar (=> H semi-entscheidbar)</li>
+            </ul>
+        </li>
+        <li><b>Zwei wichtige Reduktionen</b></a>
+            <ul class='sublist'>
+                <li>PCP reduzierbar auf WA (=> WA nicht entscheidbar, Gödel)</li>
+                <li>PCP reduzierbar auf PL (gültige prädikatenlogische Formeln)</li>
+            </ul>
+        </li>
+        </ul>  
+        
+        <h2>P und NP <span class='links'>(<a target="_blank" href="buk/2_p_np.pdf">Notizen</a>)</span></h2>
+        <ul>
+        <li><b>Einführung</b></a>
+          <ul class='sublist'>
+            <li>Bemerkung: Complexity zoo</li>
+            <li>O-Notation</li>
+            <li>Beispiele</li>
+            </ul>
+        </li>
+        <li><b>P</b></a>
+          <ul class='sublist'>
+            <li>Definition: Zeitfunktionen deterministischer Turing-Maschinen (TMs)</li>
+            <li>Definition: P (Entscheidungsprobleme polynomieller Laufzeit)</li>
+            <li>Bemerkung/Beispiele: Kostenmaße</li>
+            <li>Bemerkung: Komplexität häufiger Operationen</li>
+            </ul>
+        </li>
+        <li><b>NP</b></a>
+            <ul class='sublist'>
+                <li>Definition: Nicht-deterministische Turing-Maschinen (NTM)</li>
+                <li>Vergleich von akzeptierten Sprachen: deterministisch vs. nicht-deterministisch</li>
+                <li>Satz: NTMs erschließen keine neue Klasse von (semi-)entscheidbaren Problemen.</li>
+                <li>Definition: Zeitfunktionen nicht-deterministischer Turing-Maschinen</li>
+                <li>Definition: NP</li>
+                <li>Beispiel: SAT</li>
+                <li>Bemerkung: NP liegt in der Menge der berechenbaren Sprachen</li>
+                <li>Bemerkung: Punktweise Zeitfunktion für NTMs</li>
+                <li>Bemerkung: Guess and Check-Argument</li>
+            </ul>
+        </li>
+        </ul>  
+
+        <h2>NP-Vollständigkeit <span class='links'>(<a target="_blank" href="buk/3_nphard_SAT.pdf">Notizen</a>, <a target="_blank" href="https://travelingsalesperson-7qbyh0pjnnd.streamlit.app">Simulation: Traveling Salesperson</a>)</span></h2>
+        <ul>
+        <li><b>Polynomielle Reduzierbarkeit</b></a>
+          <ul class='sublist'>
+            <li>Definition: Polynomielle Reduzierbarkeit</li>
+            <li>Technisches Lemma: Zeitkomplexität von Hintereinanderschaltungen</li>
+            <li>Korollar: Transitivität der polynomiellen Reduktion, sowie Zugehörigkeit zu P/NP von reduzierten Sprachen</li>
+            </ul>
+        </li>
+        <li><b>NP-Vollständigkeit</b></a>
+          <ul class='sublist'>
+            <li>Definition: NP-Härte und -Vollständigkeit</li>
+            <li>Satz: Die Existenz von deterministischen polynomiellen Algorithmen für NP-vollständige Probleme würde P=NP beweisen</li>
+            </ul>
+        </li>
+        <li><b>NP-vollständige Probleme</b></a>
+            <ul class='sublist'>
+                <li>SAT</li>
+                <li>3-SAT</li>
+                <li>SUBSETSUM</li>
+                <li>PARTITION</li>
+                <li>BIN PACKING</li>
+                <li>EULER-KREIS</li>
+                <li>HAMILTON-KREIS</li>
+                <li>TRAVELING SALESPERSON (<a target="_blank" href="https://travelingsalesperson-7qbyh0pjnnd.streamlit.app">Simulation</a>)</li>
+            </ul>
+        </li>
+        </ul>  
+
+
+      </div>
+    </div>
+  </body>
+</html>
