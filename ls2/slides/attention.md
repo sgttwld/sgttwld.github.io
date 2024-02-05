@@ -864,6 +864,29 @@ Using **teacher forcing**, the decoder can be **parallelized during learning** l
 --
 
 
+<div class="container">
+<div class="col1">
+
+### Position-wise Feed-Forward layers
+
+Each output vector from the attention blocks is fed through the same large feed-forward block.
+
+These are often overlooked, but they are where most of the parameters go in the large models. 
+
+They store most of the domain knowledge, retrieved by the attention layers.
+
+
+
+<div class="col1">
+    <img style="height:600px;" data-src="./images/att_querykeyvalue_posff.png">
+</div>
+</div>
+
+
+
+
+--
+
 
 ### Some additional details
 
