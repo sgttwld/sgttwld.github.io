@@ -88,7 +88,7 @@ where $\phi(x,x')$ is the angle between $x$ and $x'$.
 
 * Hence, $\langle x,x'\rangle$ is a good similarity measure, if the length (or _magnitude_) of the vectors are not informative. 
 
-* E.g. when the vectors are normalized in some way, so that only the proportions between the features are relevent, not their total value.
+* E.g. when the vectors are normalized in some way, so that only the proportions between the features are relevant, not their total value.
 
 * Or when having decision hyperplanes through the origin, so that only the angle is used as a criterion.
 
